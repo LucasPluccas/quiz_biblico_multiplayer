@@ -158,7 +158,7 @@ function connectAndJoin(code, name) {
       el("toolOutput").textContent = "";
       el("roundInfo").textContent = "";
 
-      el("levelBadge").textContent = msg.nivel;
+      el("levelBadge").textContent = msg.nivel || "—";
       el("questionText").textContent = msg.pergunta;
 
       renderChoices(msg.opcoes);
@@ -208,16 +208,11 @@ function connectAndJoin(code, name) {
 
       const ref = msg.referencia || "—";
 
-      // mensagem do bônus
-      let bonusLine = "Bônus: ninguém ganhou o bônus.";
-      if (msg.first_correct && msg.first_correct.name) {
-        bonusLine = `Bônus: ${msg.first_correct.name} ganhou +1 por responder primeiro e acertar.`;
-      } else if (msg.first_answer_player) {
-        bonusLine = "Bônus: o primeiro a responder errou, então ninguém ganhou +1.";
-      }
+      const bonus = msg.bonus || { awarded: false, winner: null, reason: "" };
+      const bonusLine = bonus.reason ? ` ${bonus.reason}` : "";
 
       el("roundInfo").textContent =
-        `Correta: opção ${correct + 1}. Referência: ${ref}. ${bonusLine}`;
+        `Correta: opção ${correct + 1}. Referência: ${ref}.${bonusLine}`;
 
       updateScoreboard(msg.scoreboard);
       refreshToolButtons();
@@ -257,4 +252,3 @@ document.querySelectorAll(".tool").forEach(btn => {
 });
 
 refreshToolButtons();
-

@@ -13,6 +13,9 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 ROOMS = {}     # room_code -> dict room
 SOCKETS = {}   # room_code -> {player_id: websocket}
 
+BONUS_TIE_THRESHOLD_S = 0.150  # 150ms
+
+
 # -------------------------
 # Utilitários
 # -------------------------
@@ -52,7 +55,6 @@ async def broadcast_room_state(room_code: str):
         "type": "room_state",
         "host_id": room["host_id"],
         "started": room["started"],
-        "ended": room.get("ended", False),
         "players": [
             {"id": pid, "name": p["name"], "score": p["score"]}
             for pid, p in players.items()
@@ -75,8 +77,19 @@ def in_time(room: dict, now: float, limit_s: int = 20) -> bool:
 
 
 def everyone_done(room: dict) -> bool:
-    # "feito" = respondeu OU pulou
+    # Feito = respondeu OU pulou
     return (len(room["answers"]) + len(room["skipped"])) >= len(room["players"])
+
+
+def manual_answers_sorted(room: dict):
+    """
+    Retorna lista de tuples (pid, answer_dict) somente de respostas manuais (auto=False),
+    ordenadas por timestamp.
+    answer_dict contém: choice, ts, auto
+    """
+    items = [(pid, ans) for pid, ans in room["answers"].items() if not ans.get("auto", False)]
+    items.sort(key=lambda x: x[1]["ts"])
+    return items
 
 
 async def start_round(room_code: str):
@@ -85,14 +98,15 @@ async def start_round(room_code: str):
     q = pick_next_question(room)
     room["current_question"] = q
     room["question_started_at"] = time.time()
+
+    # answers: player_id -> {"choice": int, "ts": float, "auto": bool}
     room["answers"] = {}
     room["skipped"] = set()
-    room["first_answer_player"] = None
 
     await send_to_all(room_code, {
         "type": "question",
         "id": q["id"],
-        "nivel": q["nivel"],
+        "nivel": q.get("nivel", "—"),
         "pergunta": q["pergunta"],
         "opcoes": q["opcoes"],
         "tempo": 20
@@ -120,28 +134,48 @@ async def finish_round(room_code: str):
     correct = int(q["correta"])
     players = room["players"]
 
-    # +1 por acerto
+    # +1 por acerto (vale para manual e auto)
     for pid, ans in room["answers"].items():
         if ans["choice"] == correct:
             players[pid]["score"] += 1
 
-    # bônus: +1 se primeiro a responder acertou
-    first_pid = room.get("first_answer_player")
+    # -------------------------
+    # BÔNUS REFINADO (todas as regras)
+    # -------------------------
+    manual = manual_answers_sorted(room)  # somente respostas manuais, ordenadas por ts
 
-    first_correct = None
-    if first_pid and room["answers"].get(first_pid, {}).get("choice") == correct:
-        players[first_pid]["score"] += 1
-        first_correct = {
-            "id": first_pid,
-            "name": players[first_pid]["name"]
-        }
+    bonus = {
+        "awarded": False,
+        "winner": None,
+        "reason": ""
+    }
+
+    # Regra 2: precisa de disputa real -> pelo menos 2 respostas manuais
+    if len(manual) < 2:
+        bonus["reason"] = "Sem bônus: é necessário ao menos 2 respostas manuais na rodada."
+    else:
+        (first_pid, first_ans) = manual[0]
+        (second_pid, second_ans) = manual[1]
+
+        # Regra 4: empate técnico se diferença < 150ms
+        if (second_ans["ts"] - first_ans["ts"]) < BONUS_TIE_THRESHOLD_S:
+            bonus["reason"] = f"Sem bônus: empate técnico (diferença < {int(BONUS_TIE_THRESHOLD_S*1000)}ms)."
+        else:
+            # Regra 1: resposta automática não entra aqui porque manual já filtra auto=False
+            # Regra 3: livramento não é resposta, então também não entra aqui
+            if first_ans["choice"] == correct:
+                players[first_pid]["score"] += 1
+                bonus["awarded"] = True
+                bonus["winner"] = {"id": first_pid, "name": players[first_pid]["name"]}
+                bonus["reason"] = "Bônus concedido: primeiro a responder manualmente acertou."
+            else:
+                bonus["reason"] = "Sem bônus: o primeiro a responder manualmente errou."
 
     await send_to_all(room_code, {
         "type": "round_result",
         "correta": correct,
         "referencia": q.get("referencia"),
-        "first_answer_player": first_pid,     # quem respondeu primeiro (mesmo se errou)
-        "first_correct": first_correct,       # quem ganhou o bônus (se ganhou)
+        "bonus": bonus,
         "scoreboard": [
             {"id": pid, "name": p["name"], "score": p["score"]}
             for pid, p in players.items()
@@ -167,7 +201,7 @@ def home():
 def create_room():
     code = make_room_code()
     ROOMS[code] = {
-        "players": {},
+        "players": {},      # player_id -> {name, score, tools}
         "host_id": None,
         "started": False,
 
@@ -177,7 +211,6 @@ def create_room():
         "question_started_at": None,
         "answers": {},
         "skipped": set(),
-        "first_answer_player": None
     }
     SOCKETS[code] = {}
     return {"room_code": code}
@@ -203,6 +236,9 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
             msg = await ws.receive_json()
             mtype = msg.get("type")
 
+            # -------------------------
+            # Entrar na sala
+            # -------------------------
             if mtype == "join":
                 name = (msg.get("name") or "").strip()
                 if not name:
@@ -238,6 +274,9 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                     "tools": players[player_id]["tools"]
                 })
 
+            # -------------------------
+            # Iniciar jogo (host)
+            # -------------------------
             elif mtype == "start":
                 room = ROOMS[room_code]
                 if player_id != room["host_id"]:
@@ -252,6 +291,9 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                 await broadcast_room_state(room_code)
                 await start_round(room_code)
 
+            # -------------------------
+            # Responder (MANUAL)
+            # -------------------------
             elif mtype == "answer":
                 room = ROOMS[room_code]
                 q = room.get("current_question")
@@ -269,14 +311,14 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                 if choice not in [0, 1, 2, 3]:
                     continue
 
-                room["answers"][player_id] = {"choice": int(choice), "ts": now}
-
-                if room["first_answer_player"] is None:
-                    room["first_answer_player"] = player_id
+                room["answers"][player_id] = {"choice": int(choice), "ts": now, "auto": False}
 
                 if everyone_done(room):
                     await finish_round(room_code)
 
+            # -------------------------
+            # Ferramentas
+            # -------------------------
             elif mtype == "tool":
                 tool = msg.get("tool")
 
@@ -291,6 +333,7 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                     await send_to_one(room_code, player_id, {"type": "error", "message": "Tempo encerrado."})
                     continue
 
+                # não pode usar se já respondeu/pulou
                 if player_id in room["answers"] or player_id in room["skipped"]:
                     await send_to_one(room_code, player_id, {"type": "error", "message": "Você já finalizou nesta rodada."})
                     continue
@@ -304,14 +347,14 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                     await send_to_one(room_code, player_id, {"type": "error", "message": "Ferramenta indisponível."})
                     continue
 
+                # consome ferramenta
                 tools[tool] -= 1
 
                 correct = int(q["correta"])
 
                 if tool == "revelacao_divina":
-                    room["answers"][player_id] = {"choice": correct, "ts": now}
-                    if room["first_answer_player"] is None:
-                        room["first_answer_player"] = player_id
+                    # Responde automaticamente (auto=True) e NÃO entra no bônus
+                    room["answers"][player_id] = {"choice": correct, "ts": now, "auto": True}
 
                     await send_to_one(room_code, player_id, {
                         "type": "tool_result",
@@ -341,6 +384,7 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                     })
 
                 elif tool == "livramento":
+                    # Regra 3: não é resposta e não concorre ao bônus
                     room["skipped"].add(player_id)
                     await send_to_one(room_code, player_id, {
                         "type": "tool_result",
@@ -351,6 +395,7 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
                     if everyone_done(room):
                         await finish_round(room_code)
 
+                # tools_state atualizado
                 await send_to_one(room_code, player_id, {
                     "type": "tools_state",
                     "tools": tools
@@ -358,4 +403,3 @@ async def ws_room(ws: WebSocket, room_code: str, player_id: str):
 
     except WebSocketDisconnect:
         SOCKETS[room_code].pop(player_id, None)
-
