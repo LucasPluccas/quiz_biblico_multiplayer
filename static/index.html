@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz Bíblico</title>
+  <link rel="stylesheet" href="/static/styles.css" />
+</head>
+<body>
+  <main class="container">
+    <h1>Quiz Bíblico</h1>
+
+    <!-- Lobby -->
+    <section id="lobby" class="card">
+      <div class="row">
+        <button id="createRoomBtn">Criar sala</button>
+        <p>Sala: <strong id="roomCode">—</strong></p>
+      </div>
+
+      <div class="row">
+        <input id="roomInput" placeholder="PIN da sala (ex: A1B2)" />
+        <input id="nameInput" placeholder="Seu nome" />
+        <button id="joinBtn">Entrar</button>
+      </div>
+
+      <div class="row">
+        <button id="startBtn" disabled>Iniciar (somente host)</button>
+        <button id="restartBtn" disabled>Reiniciar partida (host)</button>
+      </div>
+
+      <h2>Jogadores</h2>
+      <ul id="playersList"></ul>
+
+      <p id="status" class="status"></p>
+    </section>
+
+    <!-- Jogo -->
+    <section id="game" class="card hidden">
+      <div class="topbar">
+        <div class="badge" id="levelBadge">—</div>
+        <div class="timer">
+          Rodada <span id="roundNum">—</span>/<span id="roundTotal">—</span> •
+          Tempo: <span id="timer">20</span>s
+        </div>
+      </div>
+
+      <h2 id="questionText">Pergunta…</h2>
+      <div id="choices" class="choices"></div>
+
+      <h3>Ferramentas</h3>
+      <div class="tools">
+        <button class="tool" data-tool="livramento" disabled>✝️ Livramento (Pular)</button>
+        <button class="tool" data-tool="me_ajuda_senhor" disabled>🙏 Me Ajuda Senhor (50/50)</button>
+        <button class="tool" data-tool="revelacao_divina" disabled>✨ Revelação Divina (Resposta)</button>
+        <button class="tool" data-tool="dica_santa" disabled>📖 Dica Santa (Capítulo)</button>
+      </div>
+
+      <div id="toolOutput" class="roundInfo"></div>
+      <div id="roundInfo" class="roundInfo"></div>
+
+      <h2>Placar</h2>
+      <ul id="scoreboard"></ul>
+
+      <div id="gameOverBox" class="roundInfo hidden"></div>
+    </section>
+  </main>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
+

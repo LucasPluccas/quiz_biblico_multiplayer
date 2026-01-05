@@ -1,0 +1,22 @@
+body { font-family: Arial, sans-serif; margin: 0; background: #0f172a; color: #e2e8f0; }
+.container { max-width: 820px; margin: 0 auto; padding: 16px; }
+.card { background: #111827; border: 1px solid #1f2937; border-radius: 12px; padding: 16px; }
+.row { display: flex; gap: 8px; align-items: center; margin: 10px 0; flex-wrap: wrap; }
+
+input { padding: 10px; border-radius: 10px; border: 1px solid #334155; background:#0b1220; color:#e2e8f0; }
+button { padding: 10px 12px; border-radius: 10px; border: 1px solid #334155; background: #1f2937; color:#e2e8f0; cursor:pointer; }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.hidden { display: none; }
+.status { color:#93c5fd; }
+
+.topbar { display:flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.badge { display:inline-block; padding: 6px 10px; border-radius: 999px; background:#0b1220; border:1px solid #334155; }
+.timer { color:#e2e8f0; }
+
+.choices { display: grid; grid-template-columns: 1fr; gap: 10px; margin: 12px 0; }
+.choice { text-align: left; }
+
+.tools { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin: 10px 0; }
+
+.roundInfo { margin-top: 10px; padding: 10px; background:#0b1220; border:1px solid #334155; border-radius: 10px; }

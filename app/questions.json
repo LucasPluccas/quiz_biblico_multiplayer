@@ -1,0 +1,814 @@
+[
+  {
+    "id": "f1",
+    "nivel": "facil",
+    "pergunta": "Quem foi o primeiro homem criado por Deus?",
+    "opcoes": ["Caim", "Abel", "Adão", "Noé"],
+    "correta": 2,
+    "referencia": "Gênesis 1:27",
+    "capitulo": "Gênesis 1"
+  },
+  {
+    "id": "f2",
+    "nivel": "facil",
+    "pergunta": "Quem matou o gigante Golias?",
+    "opcoes": ["Saul", "Davi", "Salomão", "Samuel"],
+    "correta": 1,
+    "referencia": "1 Samuel 17",
+    "capitulo": "1 Samuel 17"
+  },
+  {
+    "id": "f3",
+    "nivel": "facil",
+    "pergunta": "Quantos mandamentos Deus deu a Moisés?",
+    "opcoes": ["5", "7", "10", "12"],
+    "correta": 2,
+    "referencia": "Êxodo 20",
+    "capitulo": "Êxodo 20"
+  },
+  {
+    "id": "f4",
+    "nivel": "facil",
+    "pergunta": "Quem foi engolido por um grande peixe?",
+    "opcoes": ["Jonas", "Pedro", "Paulo", "João"],
+    "correta": 0,
+    "referencia": "Jonas 1:17",
+    "capitulo": "Jonas 1"
+  },
+  {
+    "id": "f5",
+    "nivel": "facil",
+    "pergunta": "Qual o nome da mãe de Jesus?",
+    "opcoes": ["Marta", "Maria", "Isabel", "Ana"],
+    "correta": 1,
+    "referencia": "Lucas 1:30-31",
+    "capitulo": "Lucas 1"
+  },
+  {
+    "id": "f6",
+    "nivel": "facil",
+    "pergunta": "Onde Jesus nasceu?",
+    "opcoes": ["Nazaré", "Jerusalém", "Belém", "Cafarnaum"],
+    "correta": 2,
+    "referencia": "Mateus 2:1",
+    "capitulo": "Mateus 2"
+  },
+  {
+    "id": "f7",
+    "nivel": "facil",
+    "pergunta": "Quem traiu Jesus?",
+    "opcoes": ["Pedro", "Judas Iscariotes", "Tiago", "João"],
+    "correta": 1,
+    "referencia": "Mateus 26:14-16",
+    "capitulo": "Mateus 26"
+  },
+  {
+    "id": "f8",
+    "nivel": "facil",
+    "pergunta": "Quem batizou Jesus?",
+    "opcoes": ["João Batista", "Pedro", "Paulo", "Tiago"],
+    "correta": 0,
+    "referencia": "Mateus 3:13-17",
+    "capitulo": "Mateus 3"
+  },
+  {
+    "id": "f9",
+    "nivel": "facil",
+    "pergunta": "Qual foi o primeiro milagre de Jesus?",
+    "opcoes": ["Curar um cego", "Andar sobre as águas", "Transformar água em vinho", "Ressuscitar Lázaro"],
+    "correta": 2,
+    "referencia": "João 2:1-11",
+    "capitulo": "João 2"
+  },
+  {
+    "id": "f10",
+    "nivel": "facil",
+    "pergunta": "Quem abriu o Mar Vermelho?",
+    "opcoes": ["Josué", "Moisés", "Arão", "Abraão"],
+    "correta": 1,
+    "referencia": "Êxodo 14:21",
+    "capitulo": "Êxodo 14"
+  },
+  {
+    "id": "f11",
+    "nivel": "facil",
+    "pergunta": "Quem foi vendido pelos irmãos como escravo?",
+    "opcoes": ["José", "Benjamim", "Rúben", "Judá"],
+    "correta": 0,
+    "referencia": "Gênesis 37:28",
+    "capitulo": "Gênesis 37"
+  },
+  {
+    "id": "f12",
+    "nivel": "facil",
+    "pergunta": "Quantos discípulos Jesus escolheu?",
+    "opcoes": ["7", "10", "12", "70"],
+    "correta": 2,
+    "referencia": "Mateus 10:1-4",
+    "capitulo": "Mateus 10"
+  },
+  {
+    "id": "f13",
+    "nivel": "facil",
+    "pergunta": "Quem negou Jesus três vezes?",
+    "opcoes": ["Judas", "Pedro", "Tomé", "Mateus"],
+    "correta": 1,
+    "referencia": "Mateus 26:69-75",
+    "capitulo": "Mateus 26"
+  },
+  {
+    "id": "f14",
+    "nivel": "facil",
+    "pergunta": "Qual é o primeiro livro da Bíblia?",
+    "opcoes": ["Mateus", "Êxodo", "Salmos", "Gênesis"],
+    "correta": 3,
+    "referencia": "Gênesis 1",
+    "capitulo": "Gênesis 1"
+  },
+  {
+    "id": "f15",
+    "nivel": "facil",
+    "pergunta": "Quem era o homem mais forte da Bíblia?",
+    "opcoes": ["Davi", "Sansão", "Golias", "Calebe"],
+    "correta": 1,
+    "referencia": "Juízes 13–16",
+    "capitulo": "Juízes 13"
+  },
+  {
+    "id": "f16",
+    "nivel": "facil",
+    "pergunta": "O que Noé construiu?",
+    "opcoes": ["Um templo", "Uma torre", "Uma arca", "Um muro"],
+    "correta": 2,
+    "referencia": "Gênesis 6:14",
+    "capitulo": "Gênesis 6"
+  },
+  {
+    "id": "f17",
+    "nivel": "facil",
+    "pergunta": "Quem ressuscitou ao terceiro dia?",
+    "opcoes": ["Lázaro", "Jesus", "Elias", "Moisés"],
+    "correta": 1,
+    "referencia": "Lucas 24:6-7",
+    "capitulo": "Lucas 24"
+  },
+  {
+    "id": "f18",
+    "nivel": "facil",
+    "pergunta": "Qual rei pediu sabedoria a Deus?",
+    "opcoes": ["Davi", "Saul", "Salomão", "Ezequias"],
+    "correta": 2,
+    "referencia": "1 Reis 3:9",
+    "capitulo": "1 Reis 3"
+  },
+  {
+    "id": "f19",
+    "nivel": "facil",
+    "pergunta": "Quem foi a esposa de Adão?",
+    "opcoes": ["Sara", "Eva", "Rebeca", "Raquel"],
+    "correta": 1,
+    "referencia": "Gênesis 3:20",
+    "capitulo": "Gênesis 3"
+  },
+  {
+    "id": "f20",
+    "nivel": "facil",
+    "pergunta": "Em quantos dias Deus criou o mundo?",
+    "opcoes": ["3", "6", "7", "40"],
+    "correta": 1,
+    "referencia": "Gênesis 1:31",
+    "capitulo": "Gênesis 1"
+  },
+  {
+    "id": "f21",
+    "nivel": "facil",
+    "pergunta": "Quem subiu aos céus em uma carruagem de fogo?",
+    "opcoes": ["Eliseu", "Elias", "Enoque", "Moisés"],
+    "correta": 1,
+    "referencia": "2 Reis 2:11",
+    "capitulo": "2 Reis 2"
+  },
+  {
+    "id": "f22",
+    "nivel": "facil",
+    "pergunta": "Quem escreveu a maior parte dos Salmos?",
+    "opcoes": ["Moisés", "Salomão", "Davi", "Asafe"],
+    "correta": 2,
+    "referencia": "Salmos",
+    "capitulo": "Salmos"
+  },
+  {
+    "id": "f23",
+    "nivel": "facil",
+    "pergunta": "Qual era a profissão de Pedro?",
+    "opcoes": ["Carpinteiro", "Cobrador de impostos", "Pescador", "Médico"],
+    "correta": 2,
+    "referencia": "Mateus 4:18",
+    "capitulo": "Mateus 4"
+  },
+  {
+    "id": "f24",
+    "nivel": "facil",
+    "pergunta": "Quem perseguiu os cristãos antes de se converter?",
+    "opcoes": ["Pedro", "Paulo (Saulo)", "Barnabé", "Estêvão"],
+    "correta": 1,
+    "referencia": "Atos 9",
+    "capitulo": "Atos 9"
+  },
+  {
+    "id": "f25",
+    "nivel": "facil",
+    "pergunta": "O que aconteceu quando Josué tocou as trombetas em Jericó?",
+    "opcoes": ["O sol parou", "Choveu fogo", "As muralhas caíram", "O mar se abriu"],
+    "correta": 2,
+    "referencia": "Josué 6:20",
+    "capitulo": "Josué 6"
+  },
+  {
+    "id": "f26",
+    "nivel": "facil",
+    "pergunta": "Quem era o pai da fé que teve um filho na velhice?",
+    "opcoes": ["Noé", "Abraão", "Isaque", "Jacó"],
+    "correta": 1,
+    "referencia": "Gênesis 21:5",
+    "capitulo": "Gênesis 21"
+  },
+  {
+    "id": "f27",
+    "nivel": "facil",
+    "pergunta": "Quem duvidou da ressurreição de Jesus até vê-lo?",
+    "opcoes": ["João", "Tiago", "Tomé", "Filipe"],
+    "correta": 2,
+    "referencia": "João 20:24-29",
+    "capitulo": "João 20"
+  },
+  {
+    "id": "f28",
+    "nivel": "facil",
+    "pergunta": "Quem liderou o povo após a morte de Moisés?",
+    "opcoes": ["Calebe", "Josué", "Arão", "Gideão"],
+    "correta": 1,
+    "referencia": "Josué 1:1-2",
+    "capitulo": "Josué 1"
+  },
+  {
+    "id": "f29",
+    "nivel": "facil",
+    "pergunta": "Qual o último livro da Bíblia?",
+    "opcoes": ["Malaquias", "Judas", "Apocalipse", "Hebreus"],
+    "correta": 2,
+    "referencia": "Apocalipse",
+    "capitulo": "Apocalipse 1"
+  },
+  {
+    "id": "f30",
+    "nivel": "facil",
+    "pergunta": "O que Jesus multiplicou para alimentar a multidão?",
+    "opcoes": ["Ouro e prata", "Pães e peixes", "Azeite e farinha", "Vinho e uvas"],
+    "correta": 1,
+    "referencia": "Mateus 14:17-21",
+    "capitulo": "Mateus 14"
+  },
+
+  {
+    "id": "m1",
+    "nivel": "medio",
+    "pergunta": "Quem era o cobrador de impostos que subiu na árvore para ver Jesus?",
+    "opcoes": ["Mateus", "Zaqueu", "Nicodemos", "Bartimeu"],
+    "correta": 1,
+    "referencia": "Lucas 19:2-4",
+    "capitulo": "Lucas 19"
+  },
+  {
+    "id": "m2",
+    "nivel": "medio",
+    "pergunta": "Qual o nome da esposa perversa do rei Acabe?",
+    "opcoes": ["Atalia", "Jezabel", "Dalila", "Vasti"],
+    "correta": 1,
+    "referencia": "1 Reis 16:31",
+    "capitulo": "1 Reis 16"
+  },
+  {
+    "id": "m3",
+    "nivel": "medio",
+    "pergunta": "Quem acompanhou Paulo em sua primeira viagem missionária?",
+    "opcoes": ["Barnabé", "Silas", "Timóteo", "Lucas"],
+    "correta": 0,
+    "referencia": "Atos 13:2",
+    "capitulo": "Atos 13"
+  },
+  {
+    "id": "m4",
+    "nivel": "medio",
+    "pergunta": "Quem foi o primeiro rei de Israel?",
+    "opcoes": ["Davi", "Salomão", "Saul", "Samuel"],
+    "correta": 2,
+    "referencia": "1 Samuel 9:17",
+    "capitulo": "1 Samuel 9"
+  },
+  {
+    "id": "m5",
+    "nivel": "medio",
+    "pergunta": "Qual profeta casou-se com uma prostituta por ordem de Deus?",
+    "opcoes": ["Isaías", "Jeremias", "Oseias", "Amós"],
+    "correta": 2,
+    "referencia": "Oseias 1:2",
+    "capitulo": "Oseias 1"
+  },
+  {
+    "id": "m6",
+    "nivel": "medio",
+    "pergunta": "Quem foi a única juíza de Israel?",
+    "opcoes": ["Rute", "Débora", "Ester", "Noemi"],
+    "correta": 1,
+    "referencia": "Juízes 4:4",
+    "capitulo": "Juízes 4"
+  },
+  {
+    "id": "m7",
+    "nivel": "medio",
+    "pergunta": "Quem era o irmão mais velho de Moisés?",
+    "opcoes": ["Arão", "Miriã", "Gérson", "Hur"],
+    "correta": 0,
+    "referencia": "Êxodo 4:14",
+    "capitulo": "Êxodo 4"
+  },
+  {
+    "id": "m8",
+    "nivel": "medio",
+    "pergunta": "Em qual ilha Paulo naufragou e foi picado por uma cobra?",
+    "opcoes": ["Creta", "Patmos", "Malta", "Chipre"],
+    "correta": 2,
+    "referencia": "Atos 28:1",
+    "capitulo": "Atos 28"
+  },
+  {
+    "id": "m9",
+    "nivel": "medio",
+    "pergunta": "Quem vendeu seu direito de primogenitura por um prato de lentilhas?",
+    "opcoes": ["Jacó", "Esaú", "Isaque", "José"],
+    "correta": 1,
+    "referencia": "Gênesis 25:29-34",
+    "capitulo": "Gênesis 25"
+  },
+  {
+    "id": "m10",
+    "nivel": "medio",
+    "pergunta": "Quem escreveu o livro de Lamentações?",
+    "opcoes": ["Isaías", "Ezequiel", "Daniel", "Jeremias"],
+    "correta": 3,
+    "referencia": "Lamentações 1 (Tradição)",
+    "capitulo": "Lamentações"
+  },
+  {
+    "id": "m11",
+    "nivel": "medio",
+    "pergunta": "Qual discípulo foi escolhido para substituir Judas Iscariotes?",
+    "opcoes": ["Barnabé", "Matias", "Paulo", "Estêvão"],
+    "correta": 1,
+    "referencia": "Atos 1:26",
+    "capitulo": "Atos 1"
+  },
+  {
+    "id": "m12",
+    "nivel": "medio",
+    "pergunta": "Quem foi o sumo sacerdote que julgou Jesus?",
+    "opcoes": ["Anás", "Caifás", "Pilatos", "Gamaliel"],
+    "correta": 1,
+    "referencia": "Mateus 26:57",
+    "capitulo": "Mateus 26"
+  },
+  {
+    "id": "m13",
+    "nivel": "medio",
+    "pergunta": "Quem teve seu cabelo cortado e perdeu a força?",
+    "opcoes": ["Golias", "Sansão", "Absalão", "Gideão"],
+    "correta": 1,
+    "referencia": "Juízes 16:19",
+    "capitulo": "Juízes 16"
+  },
+  {
+    "id": "m14",
+    "nivel": "medio",
+    "pergunta": "Qual rei viu uma mão escrevendo na parede?",
+    "opcoes": ["Nabucodonosor", "Dario", "Belsazar", "Ciro"],
+    "correta": 2,
+    "referencia": "Daniel 5:5",
+    "capitulo": "Daniel 5"
+  },
+  {
+    "id": "m15",
+    "nivel": "medio",
+    "pergunta": "Quem foi a mulher que escondeu os espias em Jericó?",
+    "opcoes": ["Rute", "Raabe", "Tamar", "Bate-Seba"],
+    "correta": 1,
+    "referencia": "Josué 2:1",
+    "capitulo": "Josué 2"
+  },
+  {
+    "id": "m16",
+    "nivel": "medio",
+    "pergunta": "Qual livro da Bíblia não menciona o nome de Deus?",
+    "opcoes": ["Rute", "Cânticos", "Ester", "Eclesiastes"],
+    "correta": 2,
+    "referencia": "Livro de Ester",
+    "capitulo": "Ester 1"
+  },
+  {
+    "id": "m17",
+    "nivel": "medio",
+    "pergunta": "Quem era o pai de João Batista?",
+    "opcoes": ["Zebedeu", "Zacarias", "José", "Simeão"],
+    "correta": 1,
+    "referencia": "Lucas 1:5",
+    "capitulo": "Lucas 1"
+  },
+  {
+    "id": "m18",
+    "nivel": "medio",
+    "pergunta": "Qual foi a praga do Egito que envolvia escuridão?",
+    "opcoes": ["A quinta", "A sétima", "A nona", "A décima"],
+    "correta": 2,
+    "referencia": "Êxodo 10:21",
+    "capitulo": "Êxodo 10"
+  },
+  {
+    "id": "m19",
+    "nivel": "medio",
+    "pergunta": "Quem orou e o sol parou?",
+    "opcoes": ["Moisés", "Josué", "Elias", "Davi"],
+    "correta": 1,
+    "referencia": "Josué 10:12",
+    "capitulo": "Josué 10"
+  },
+  {
+    "id": "m20",
+    "nivel": "medio",
+    "pergunta": "Quem foi o primeiro mártir cristão?",
+    "opcoes": ["Tiago", "Pedro", "Estêvão", "Antipas"],
+    "correta": 2,
+    "referencia": "Atos 7:59-60",
+    "capitulo": "Atos 7"
+  },
+  {
+    "id": "m21",
+    "nivel": "medio",
+    "pergunta": "Em qual cidade os discípulos foram chamados cristãos pela primeira vez?",
+    "opcoes": ["Jerusalém", "Antioquia", "Roma", "Éfeso"],
+    "correta": 1,
+    "referencia": "Atos 11:26",
+    "capitulo": "Atos 11"
+  },
+  {
+    "id": "m22",
+    "nivel": "medio",
+    "pergunta": "Quem era o rei da Babilônia que destruiu o templo de Jerusalém?",
+    "opcoes": ["Senaqueribe", "Nabucodonosor", "Xerxes", "Dario"],
+    "correta": 1,
+    "referencia": "2 Reis 25",
+    "capitulo": "2 Reis 25"
+  },
+  {
+    "id": "m23",
+    "nivel": "medio",
+    "pergunta": "Quem ungiu Davi como rei?",
+    "opcoes": ["Natã", "Samuel", "Elias", "Saul"],
+    "correta": 1,
+    "referencia": "1 Samuel 16:13",
+    "capitulo": "1 Samuel 16"
+  },
+  {
+    "id": "m24",
+    "nivel": "medio",
+    "pergunta": "Qual o nome do monte onde Elias desafiou os profetas de Baal?",
+    "opcoes": ["Monte Sinai", "Monte Sião", "Monte Carmelo", "Monte das Oliveiras"],
+    "correta": 2,
+    "referencia": "1 Reis 18:19",
+    "capitulo": "1 Reis 18"
+  },
+  {
+    "id": "m25",
+    "nivel": "medio",
+    "pergunta": "Quem foi a mulher que lavou os pés de Jesus com lágrimas?",
+    "opcoes": ["Marta", "Maria Madalena", "Uma pecadora anônima", "Salomé"],
+    "correta": 2,
+    "referencia": "Lucas 7:37",
+    "capitulo": "Lucas 7"
+  },
+  {
+    "id": "m26",
+    "nivel": "medio",
+    "pergunta": "O que significa 'Emanuel'?",
+    "opcoes": ["Deus é amor", "Deus conosco", "Salvador do mundo", "Rei dos reis"],
+    "correta": 1,
+    "referencia": "Mateus 1:23",
+    "capitulo": "Mateus 1"
+  },
+  {
+    "id": "m27",
+    "nivel": "medio",
+    "pergunta": "Quem era o companheiro de Silas na prisão quando houve o terremoto?",
+    "opcoes": ["Pedro", "João", "Paulo", "Timóteo"],
+    "correta": 2,
+    "referencia": "Atos 16:25",
+    "capitulo": "Atos 16"
+  },
+  {
+    "id": "m28",
+    "nivel": "medio",
+    "pergunta": "Qual era a nacionalidade de Rute?",
+    "opcoes": ["Israelita", "Moabita", "Egípcia", "Filisteia"],
+    "correta": 1,
+    "referencia": "Rute 1:4",
+    "capitulo": "Rute 1"
+  },
+  {
+    "id": "m29",
+    "nivel": "medio",
+    "pergunta": "Quem intercedeu por Sodoma e Gomorra?",
+    "opcoes": ["Ló", "Abraão", "Noé", "Moisés"],
+    "correta": 1,
+    "referencia": "Gênesis 18:23",
+    "capitulo": "Gênesis 18"
+  },
+  {
+    "id": "m30",
+    "nivel": "medio",
+    "pergunta": "Qual era o nome hebraico de Daniel?",
+    "opcoes": ["Beltessazar", "Sadraque", "Mesaque", "Daniel"],
+    "correta": 3,
+    "referencia": "Daniel 1:7",
+    "capitulo": "Daniel 1"
+  },
+
+  {
+    "id": "a1",
+    "nivel": "apocalipse",
+    "pergunta": "Quem escreveu o livro de Apocalipse?",
+    "opcoes": ["Pedro", "Paulo", "João", "Tiago"],
+    "correta": 2,
+    "referencia": "Apocalipse 1:1",
+    "capitulo": "Apocalipse 1"
+  },
+  {
+    "id": "a2",
+    "nivel": "apocalipse",
+    "pergunta": "Em qual ilha o autor estava quando recebeu a revelação?",
+    "opcoes": ["Creta", "Patmos", "Malta", "Chipre"],
+    "correta": 1,
+    "referencia": "Apocalipse 1:9",
+    "capitulo": "Apocalipse 1"
+  },
+  {
+    "id": "a3",
+    "nivel": "apocalipse",
+    "pergunta": "Quantas igrejas da Ásia receberam cartas no início do livro?",
+    "opcoes": ["5", "7", "10", "12"],
+    "correta": 1,
+    "referencia": "Apocalipse 1:11",
+    "capitulo": "Apocalipse 1"
+  },
+  {
+    "id": "a4",
+    "nivel": "apocalipse",
+    "pergunta": "Qual igreja foi acusada de ter abandonado o 'primeiro amor'?",
+    "opcoes": ["Esmirna", "Éfeso", "Pérgamo", "Sardes"],
+    "correta": 1,
+    "referencia": "Apocalipse 2:4",
+    "capitulo": "Apocalipse 2"
+  },
+  {
+    "id": "a5",
+    "nivel": "apocalipse",
+    "pergunta": "Qual igreja foi descrita como 'morna' (nem fria nem quente)?",
+    "opcoes": ["Filadélfia", "Laodiceia", "Tiatira", "Esmirna"],
+    "correta": 1,
+    "referencia": "Apocalipse 3:16",
+    "capitulo": "Apocalipse 3"
+  },
+  {
+    "id": "a6",
+    "nivel": "apocalipse",
+    "pergunta": "Quantos selos haviam no livro que o Cordeiro abriu?",
+    "opcoes": ["3", "5", "7", "12"],
+    "correta": 2,
+    "referencia": "Apocalipse 5:1",
+    "capitulo": "Apocalipse 5"
+  },
+  {
+    "id": "a7",
+    "nivel": "apocalipse",
+    "pergunta": "Qual a cor do primeiro cavalo mencionado nos selos?",
+    "opcoes": ["Branco", "Vermelho", "Preto", "Amarelo"],
+    "correta": 0,
+    "referencia": "Apocalipse 6:2",
+    "capitulo": "Apocalipse 6"
+  },
+  {
+    "id": "a8",
+    "nivel": "apocalipse",
+    "pergunta": "Qual cavaleiro traz a balança na mão (escassez/fome)?",
+    "opcoes": ["O do cavalo branco", "O do cavalo vermelho", "O do cavalo preto", "O do cavalo amarelo"],
+    "correta": 2,
+    "referencia": "Apocalipse 6:5",
+    "capitulo": "Apocalipse 6"
+  },
+  {
+    "id": "a9",
+    "nivel": "apocalipse",
+    "pergunta": "Qual o nome do cavaleiro do cavalo amarelo?",
+    "opcoes": ["Guerra", "Peste", "Fome", "Morte"],
+    "correta": 3,
+    "referencia": "Apocalipse 6:8",
+    "capitulo": "Apocalipse 6"
+  },
+  {
+    "id": "a10",
+    "nivel": "apocalipse",
+    "pergunta": "Quantos anciãos estão ao redor do trono de Deus?",
+    "opcoes": ["12", "24", "48", "144"],
+    "correta": 1,
+    "referencia": "Apocalipse 4:4",
+    "capitulo": "Apocalipse 4"
+  },
+  {
+    "id": "a11",
+    "nivel": "apocalipse",
+    "pergunta": "Qual número representa os selados de todas as tribos de Israel?",
+    "opcoes": ["12.000", "70.000", "144.000", "200.000"],
+    "correta": 2,
+    "referencia": "Apocalipse 7:4",
+    "capitulo": "Apocalipse 7"
+  },
+  {
+    "id": "a12",
+    "nivel": "apocalipse",
+    "pergunta": "O que aconteceu quando o sétimo selo foi aberto?",
+    "opcoes": ["Houve um terremoto", "O sol escureceu", "Houve silêncio no céu por meia hora", "A besta surgiu"],
+    "correta": 2,
+    "referencia": "Apocalipse 8:1",
+    "capitulo": "Apocalipse 8"
+  },
+  {
+    "id": "a13",
+    "nivel": "apocalipse",
+    "pergunta": "Qual o nome da estrela que caiu sobre as águas na terceira trombeta?",
+    "opcoes": ["Absinto", "Lúcifer", "Apoliom", "Dragão"],
+    "correta": 0,
+    "referencia": "Apocalipse 8:11",
+    "capitulo": "Apocalipse 8"
+  },
+  {
+    "id": "a14",
+    "nivel": "apocalipse",
+    "pergunta": "Quem é o anjo do abismo, cujo nome é Apoliom?",
+    "opcoes": ["Satanás", "O Destruidor", "O Enganador", "O Acusador"],
+    "correta": 1,
+    "referencia": "Apocalipse 9:11",
+    "capitulo": "Apocalipse 9"
+  },
+  {
+    "id": "a15",
+    "nivel": "apocalipse",
+    "pergunta": "A mulher vestida de sol tinha uma coroa de quantas estrelas?",
+    "opcoes": ["7", "10", "12", "24"],
+    "correta": 2,
+    "referencia": "Apocalipse 12:1",
+    "capitulo": "Apocalipse 12"
+  },
+  {
+    "id": "a16",
+    "nivel": "apocalipse",
+    "pergunta": "Onde o grande Dragão foi lançado após a batalha no céu?",
+    "opcoes": ["No abismo", "Na terra", "No lago de fogo", "No mar"],
+    "correta": 1,
+    "referencia": "Apocalipse 12:9",
+    "capitulo": "Apocalipse 12"
+  },
+  {
+    "id": "a17",
+    "nivel": "apocalipse",
+    "pergunta": "A Besta que saiu do mar tinha quantos chifres?",
+    "opcoes": ["3", "7", "10", "12"],
+    "correta": 2,
+    "referencia": "Apocalipse 13:1",
+    "capitulo": "Apocalipse 13"
+  },
+  {
+    "id": "a18",
+    "nivel": "apocalipse",
+    "pergunta": "Em Apocalipse, qual é o número da besta?",
+    "opcoes": ["333", "616", "666", "777"],
+    "correta": 2,
+    "referencia": "Apocalipse 13:18",
+    "capitulo": "Apocalipse 13"
+  },
+  {
+    "id": "a19",
+    "nivel": "apocalipse",
+    "pergunta": "Quantas taças da ira de Deus foram derramadas?",
+    "opcoes": ["3", "7", "12", "21"],
+    "correta": 1,
+    "referencia": "Apocalipse 16:1",
+    "capitulo": "Apocalipse 16"
+  },
+  {
+    "id": "a20",
+    "nivel": "apocalipse",
+    "pergunta": "Em qual lugar os reis da terra se reuniram para a batalha?",
+    "opcoes": ["Megido", "Jericó", "Armagedom", "Babilônia"],
+    "correta": 2,
+    "referencia": "Apocalipse 16:16",
+    "capitulo": "Apocalipse 16"
+  },
+  {
+    "id": "a21",
+    "nivel": "apocalipse",
+    "pergunta": "Quem é a 'Grande Meretriz' descrita no livro?",
+    "opcoes": ["Babilônia", "Nínive", "Egito", "Sodoma"],
+    "correta": 0,
+    "referencia": "Apocalipse 17:5",
+    "capitulo": "Apocalipse 17"
+  },
+  {
+    "id": "a22",
+    "nivel": "apocalipse",
+    "pergunta": "Por quantos anos Satanás será preso no abismo?",
+    "opcoes": ["7 anos", "100 anos", "1.000 anos", "Eternamente"],
+    "correta": 2,
+    "referencia": "Apocalipse 20:2",
+    "capitulo": "Apocalipse 20"
+  },
+  {
+    "id": "a23",
+    "nivel": "apocalipse",
+    "pergunta": "O que acontece com a morte e o inferno no final?",
+    "opcoes": ["São perdoados", "São lançados no lago de fogo", "Permanecem na terra", "São esquecidos"],
+    "correta": 1,
+    "referencia": "Apocalipse 20:14",
+    "capitulo": "Apocalipse 20"
+  },
+  {
+    "id": "a24",
+    "nivel": "apocalipse",
+    "pergunta": "De que material são as ruas da Nova Jerusalém?",
+    "opcoes": ["Ouro puro", "Prata", "Pedras preciosas", "Cristal"],
+    "correta": 0,
+    "referencia": "Apocalipse 21:21",
+    "capitulo": "Apocalipse 21"
+  },
+  {
+    "id": "a25",
+    "nivel": "apocalipse",
+    "pergunta": "Quantas portas tem a Nova Jerusalém?",
+    "opcoes": ["3", "7", "12", "24"],
+    "correta": 2,
+    "referencia": "Apocalipse 21:12",
+    "capitulo": "Apocalipse 21"
+  },
+  {
+    "id": "a26",
+    "nivel": "apocalipse",
+    "pergunta": "Qual árvore está no meio da praça da Nova Jerusalém?",
+    "opcoes": ["Oliveira", "Videira", "Árvore da Vida", "Árvore do Bem e do Mal"],
+    "correta": 2,
+    "referencia": "Apocalipse 22:2",
+    "capitulo": "Apocalipse 22"
+  },
+  {
+    "id": "a27",
+    "nivel": "apocalipse",
+    "pergunta": "Como Jesus se autodenomina no final do livro?",
+    "opcoes": ["O Leão e o Cordeiro", "Alfa e Ômega", "O Grande Eu Sou", "O Filho do Homem"],
+    "correta": 1,
+    "referencia": "Apocalipse 22:13",
+    "capitulo": "Apocalipse 22"
+  },
+  {
+    "id": "a28",
+    "nivel": "apocalipse",
+    "pergunta": "Quem não poderá entrar na Nova Jerusalém?",
+    "opcoes": ["Os pobres", "Os covardes e incrédulos", "Os que sofreram", "Os gentios"],
+    "correta": 1,
+    "referencia": "Apocalipse 21:8",
+    "capitulo": "Apocalipse 21"
+  },
+  {
+    "id": "a29",
+    "nivel": "apocalipse",
+    "pergunta": "Qual a última promessa de Jesus na Bíblia?",
+    "opcoes": ["Amai-vos uns aos outros", "Cedo venho", "Paz seja convosco", "Ide e pregai"],
+    "correta": 1,
+    "referencia": "Apocalipse 22:20",
+    "capitulo": "Apocalipse 22"
+  },
+  {
+    "id": "a30",
+    "nivel": "apocalipse",
+    "pergunta": "O que acontecerá com quem acrescentar algo às palavras deste livro?",
+    "opcoes": ["Será abençoado", "Deus lhe acrescentará as pragas", "Será perdoado", "Nada acontecerá"],
+    "correta": 1,
+    "referencia": "Apocalipse 22:18",
+    "capitulo": "Apocalipse 22"
+  }
+]
