@@ -6,63 +6,78 @@
   <title>Quiz Bíblico Multiplayer</title>
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
+
 <body>
   <div class="bg">
-    <div class="bgImage"></div>
-    <div class="bgOverlay"></div>
+    <div class="bgGlow"></div>
     <div class="bgGrid"></div>
   </div>
 
-  <div class="shell">
+  <!-- ===== TELA 1: INÍCIO (LANDING) ===== -->
+  <section id="screenLanding" class="landing">
+    <div class="landingOverlay"></div>
 
-    <!-- START -->
-    <section id="startScreen" class="start">
-      <div class="startCard">
-        <div class="startTop">
-          <div class="brand">
-            <div class="brandLogo">✝</div>
-            <div class="brandText">
-              <div class="brandTitle">Quiz Bíblico Multiplayer</div>
-              <div class="brandSub">Até 4 jogadores. Responda rápido. Use ferramentas.</div>
-            </div>
-          </div>
-          <button id="soundToggle" class="pill">Som: ON</button>
-        </div>
+    <div class="landingCard">
+      <div class="landingHero">
+        <div class="landingHeroArt" aria-hidden="true"></div>
 
-        <div class="startHero">
-          <h1 class="startHeadline">Bem-vindo ao desafio.</h1>
-          <p class="startLead">
-            Crie uma sala, compartilhe o PIN e dispute em tempo real.
-            Níveis: fácil → médio → apocalipse.
+        <div class="landingHeroText">
+          <div class="landingBadge">Multiplayer • 2–4 jogadores • Tempo real</div>
+          <h1 class="landingTitle">Quiz Bíblico</h1>
+          <p class="landingSub">
+            Crie uma sala, compartilhe o PIN e jogue com seus amigos.
+            Responda rápido para disputar o bônus e use ferramentas com estratégia.
           </p>
 
-          <div class="startActions">
-            <button id="goLobbyBtn" class="btnPrimary big">Começar</button>
-            <div class="pill pillMuted">Dica: use fone para os sons.</div>
+          <div class="landingActions">
+            <button id="goToLobbyBtn" class="btnPrimary big">Jogar</button>
+            <button id="howBtn" class="btnGhost big">Como funciona</button>
           </div>
 
-          <div class="startFooter">
-            <span class="footerMuted">Projeto de portfólio — FastAPI + WebSocket</span>
+          <div id="howPanel" class="howPanel hidden">
+            <div class="howTitle">Como funciona</div>
+            <ul class="howList">
+              <li>Um jogador cria a sala e vira host automaticamente.</li>
+              <li>Outros entram com PIN + nome (até 4).</li>
+              <li>O host clica em <strong>Iniciar</strong> para começar.</li>
+              <li>Cada rodada tem tempo por nível (Fácil/Médio/Apocalipse).</li>
+            </ul>
+          </div>
+
+          <div class="landingFooter">
+            FastAPI + WebSocket • Projeto de portfólio
           </div>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- LOBBY -->
-    <section id="lobby" class="panel hidden">
-      <header class="panelHeader">
-        <div class="panelTitle">Lobby</div>
-        <div class="headerActions">
-          <div class="pill pillMuted">PIN: <span id="roomCode">—</span></div>
-          <button id="backToStartBtn" class="pill">Voltar</button>
+  <!-- ===== APP SHELL (Lobby / Game / End) ===== -->
+  <div id="appShell" class="shell hidden">
+    <header class="header">
+      <div class="brand">
+        <div class="brandLogo">✝</div>
+        <div class="brandText">
+          <div class="brandTitle">Quiz Bíblico Multiplayer</div>
+          <div class="brandSub">Rápido. Competitivo. Multiplayer.</div>
         </div>
-      </header>
+      </div>
+
+      <div class="headerActions">
+        <button id="backToHomeBtn" class="pill btnPill">Início</button>
+        <button id="soundToggle" class="pill btnPill">Som: ON</button>
+        <div class="pill pillMuted">PIN: <span id="roomCode">—</span></div>
+      </div>
+    </header>
+
+    <!-- ===== TELA 2: LOBBY ===== -->
+    <section id="lobby" class="panel">
+      <div class="panelHeader">
+        <div class="panelTitle">Lobby</div>
+        <div id="status" class="panelStatus">Aguardando...</div>
+      </div>
 
       <div class="panelBody">
-        <div class="panelStatusRow">
-          <div id="status" class="panelStatus">Aguardando...</div>
-        </div>
-
         <div class="controls">
           <button id="createRoomBtn" class="btnPrimary">Criar sala</button>
 
@@ -97,18 +112,18 @@
           </div>
 
           <div class="cardMini">
-            <div class="cardMiniTitle">Regras rápidas</div>
+            <div class="cardMiniTitle">Dicas</div>
             <ul class="tips">
-              <li>Primeiro a responder manualmente pode ganhar bônus.</li>
-              <li>Cada ferramenta só pode ser usada 1 vez.</li>
-              <li>Tempo varia por nível.</li>
+              <li>Quando o host iniciar, você vai automaticamente para a tela do jogo.</li>
+              <li>Responda rápido para tentar o bônus.</li>
+              <li>Revelação Divina responde automaticamente (não concorre ao bônus).</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- GAME -->
+    <!-- ===== TELA 3: JOGO ===== -->
     <section id="game" class="panel hidden">
       <div class="hud">
         <div class="hudLeft">
@@ -159,19 +174,12 @@
 
     <!-- END -->
     <section id="end" class="panel hidden">
-      <header class="panelHeader">
+      <div class="panelHeader">
         <div class="panelTitle">Fim de jogo</div>
-        <div class="headerActions">
-          <button id="restartBtn" class="btnPrimary">Reiniciar</button>
-          <button id="endBackToStartBtn" class="pill">Tela inicial</button>
-        </div>
-      </header>
+        <div class="panelStatus">Rodadas: <span id="endRounds">—</span></div>
+      </div>
 
       <div class="panelBody">
-        <div class="panelStatusRow">
-          <div class="panelStatus">Rodadas: <span id="endRounds">—</span></div>
-        </div>
-
         <div class="endGrid">
           <div class="cardMini">
             <div class="cardMiniTitle">Ranking final</div>
@@ -179,17 +187,20 @@
           </div>
 
           <div class="cardMini">
-            <div class="cardMiniTitle">O que vem depois</div>
+            <div class="cardMiniTitle">Próximos upgrades</div>
             <ul class="tips">
-              <li>Reset “rápido” (mantém sala e jogadores).</li>
-              <li>Tirar foto pela câmera.</li>
-              <li>Modo competitivo com ELO.</li>
+              <li>Botão “Jogar novamente” (reset da sala sem trocar PIN).</li>
+              <li>Câmera (tirar foto).</li>
+              <li>Modos de jogo (sobrevivência, apocalipse-only).</li>
             </ul>
           </div>
         </div>
       </div>
     </section>
 
+    <footer class="footer">
+      <span class="footerMuted">Projeto de portfólio — FastAPI + WebSocket</span>
+    </footer>
   </div>
 
   <script src="/static/app.js"></script>
