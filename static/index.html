@@ -3,69 +3,195 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Quiz Bíblico</title>
+  <title>Quiz Bíblico Multiplayer</title>
   <link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
-  <main class="container">
-    <h1>Quiz Bíblico</h1>
+  <div class="bg">
+    <div class="bgImage"></div>
+    <div class="bgOverlay"></div>
+    <div class="bgGrid"></div>
+  </div>
 
-    <!-- Lobby -->
-    <section id="lobby" class="card">
-      <div class="row">
-        <button id="createRoomBtn">Criar sala</button>
-        <p>Sala: <strong id="roomCode">—</strong></p>
+  <div class="shell">
+
+    <!-- START -->
+    <section id="startScreen" class="start">
+      <div class="startCard">
+        <div class="startTop">
+          <div class="brand">
+            <div class="brandLogo">✝</div>
+            <div class="brandText">
+              <div class="brandTitle">Quiz Bíblico Multiplayer</div>
+              <div class="brandSub">Até 4 jogadores. Responda rápido. Use ferramentas.</div>
+            </div>
+          </div>
+          <button id="soundToggle" class="pill">Som: ON</button>
+        </div>
+
+        <div class="startHero">
+          <h1 class="startHeadline">Bem-vindo ao desafio.</h1>
+          <p class="startLead">
+            Crie uma sala, compartilhe o PIN e dispute em tempo real.
+            Níveis: fácil → médio → apocalipse.
+          </p>
+
+          <div class="startActions">
+            <button id="goLobbyBtn" class="btnPrimary big">Começar</button>
+            <div class="pill pillMuted">Dica: use fone para os sons.</div>
+          </div>
+
+          <div class="startFooter">
+            <span class="footerMuted">Projeto de portfólio — FastAPI + WebSocket</span>
+          </div>
+        </div>
       </div>
-
-      <div class="row">
-        <input id="roomInput" placeholder="PIN da sala (ex: A1B2)" />
-        <input id="nameInput" placeholder="Seu nome" />
-        <button id="joinBtn">Entrar</button>
-      </div>
-
-      <div class="row">
-        <button id="startBtn" disabled>Iniciar (somente host)</button>
-        <button id="restartBtn" disabled>Reiniciar partida (host)</button>
-      </div>
-
-      <h2>Jogadores</h2>
-      <ul id="playersList"></ul>
-
-      <p id="status" class="status"></p>
     </section>
 
-    <!-- Jogo -->
-    <section id="game" class="card hidden">
-      <div class="topbar">
-        <div class="badge" id="levelBadge">—</div>
-        <div class="timer">
-          Rodada <span id="roundNum">—</span>/<span id="roundTotal">—</span> •
-          Tempo: <span id="timer">20</span>s
+    <!-- LOBBY -->
+    <section id="lobby" class="panel hidden">
+      <header class="panelHeader">
+        <div class="panelTitle">Lobby</div>
+        <div class="headerActions">
+          <div class="pill pillMuted">PIN: <span id="roomCode">—</span></div>
+          <button id="backToStartBtn" class="pill">Voltar</button>
+        </div>
+      </header>
+
+      <div class="panelBody">
+        <div class="panelStatusRow">
+          <div id="status" class="panelStatus">Aguardando...</div>
+        </div>
+
+        <div class="controls">
+          <button id="createRoomBtn" class="btnPrimary">Criar sala</button>
+
+          <input id="roomInput" class="input" placeholder="PIN da sala" />
+          <input id="nameInput" class="input" placeholder="Seu nome" />
+          <button id="joinBtn" class="btn">Entrar</button>
+
+          <button id="startBtn" class="btnAccent" disabled>Iniciar (host)</button>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="avatarBlock">
+          <div class="avatarBlockLeft">
+            <div class="label">Sua foto (opcional)</div>
+            <div class="hint">A foto é reduzida e não é salva permanentemente.</div>
+          </div>
+
+          <div class="avatarBlockRight">
+            <label class="fileBtn">
+              Escolher foto
+              <input id="avatarInput" type="file" accept="image/*" />
+            </label>
+            <img id="myAvatarPreview" class="avatarPreview hidden" alt="Prévia do avatar" />
+          </div>
+        </div>
+
+        <div class="grid2">
+          <div class="cardMini">
+            <div class="cardMiniTitle">Jogadores</div>
+            <ul id="playersList" class="playersList"></ul>
+          </div>
+
+          <div class="cardMini">
+            <div class="cardMiniTitle">Regras rápidas</div>
+            <ul class="tips">
+              <li>Primeiro a responder manualmente pode ganhar bônus.</li>
+              <li>Cada ferramenta só pode ser usada 1 vez.</li>
+              <li>Tempo varia por nível.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- GAME -->
+    <section id="game" class="panel hidden">
+      <div class="hud">
+        <div class="hudLeft">
+          <div class="pill">Rodada <span id="roundNum">0</span>/<span id="roundTotal">10</span></div>
+          <div id="levelBadge" class="pill level">—</div>
+        </div>
+
+        <div class="hudRight">
+          <div class="timerWrap">
+            <div class="timerLabel">Tempo</div>
+            <div class="timerLine">
+              <div class="timerBar">
+                <div id="timeFill" class="timeFill"></div>
+              </div>
+              <div class="timerNum"><span id="timer">—</span>s</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <h2 id="questionText">Pergunta…</h2>
-      <div id="choices" class="choices"></div>
-
-      <h3>Ferramentas</h3>
-      <div class="tools">
-        <button class="tool" data-tool="livramento" disabled>✝️ Livramento (Pular)</button>
-        <button class="tool" data-tool="me_ajuda_senhor" disabled>🙏 Me Ajuda Senhor (50/50)</button>
-        <button class="tool" data-tool="revelacao_divina" disabled>✨ Revelação Divina (Resposta)</button>
-        <button class="tool" data-tool="dica_santa" disabled>📖 Dica Santa (Capítulo)</button>
+      <div class="questionCard">
+        <div class="questionTitle">Pergunta</div>
+        <div id="questionText" class="questionText">—</div>
       </div>
 
-      <div id="toolOutput" class="roundInfo"></div>
-      <div id="roundInfo" class="roundInfo"></div>
+      <div id="choices" class="choices"></div>
 
-      <h2>Placar</h2>
-      <ul id="scoreboard"></ul>
+      <div class="belowGrid">
+        <div class="toolsCard">
+          <div class="cardMiniTitle">Ferramentas</div>
+          <div class="tools">
+            <button class="tool btnTool" data-tool="livramento">✝️ Livramento</button>
+            <button class="tool btnTool" data-tool="me_ajuda_senhor">🙏 Me Ajuda Senhor (50/50)</button>
+            <button class="tool btnTool" data-tool="revelacao_divina">✨ Revelação Divina</button>
+            <button class="tool btnTool" data-tool="dica_santa">📖 Dica Santa</button>
+          </div>
 
-      <div id="gameOverBox" class="roundInfo hidden"></div>
+          <div id="toolOutput" class="note"></div>
+          <div id="roundInfo" class="roundInfo"></div>
+        </div>
+
+        <div class="scoreCard">
+          <div class="cardMiniTitle">Placar</div>
+          <ul id="scoreboard" class="scoreboard"></ul>
+        </div>
+      </div>
     </section>
-  </main>
+
+    <!-- END -->
+    <section id="end" class="panel hidden">
+      <header class="panelHeader">
+        <div class="panelTitle">Fim de jogo</div>
+        <div class="headerActions">
+          <button id="restartBtn" class="btnPrimary">Reiniciar</button>
+          <button id="endBackToStartBtn" class="pill">Tela inicial</button>
+        </div>
+      </header>
+
+      <div class="panelBody">
+        <div class="panelStatusRow">
+          <div class="panelStatus">Rodadas: <span id="endRounds">—</span></div>
+        </div>
+
+        <div class="endGrid">
+          <div class="cardMini">
+            <div class="cardMiniTitle">Ranking final</div>
+            <ol id="finalRanking" class="finalRanking"></ol>
+          </div>
+
+          <div class="cardMini">
+            <div class="cardMiniTitle">O que vem depois</div>
+            <ul class="tips">
+              <li>Reset “rápido” (mantém sala e jogadores).</li>
+              <li>Tirar foto pela câmera.</li>
+              <li>Modo competitivo com ELO.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
 
   <script src="/static/app.js"></script>
 </body>
 </html>
-
